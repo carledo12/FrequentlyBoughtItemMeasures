@@ -1,0 +1,15 @@
+Confidence Product 1 -> Basket = 
+
+var item1 = [Product]
+var numberOfTransactions = DISTINCTCOUNT('Sales Analyis'[Order ID])
+
+var supportItem1 = DIVIDE(COUNTROWS(FILTER('Sales Analyis', 'Sales Analyis'[Product] =item1)), numberOfTransactions)
+
+RETURN [Support basket]/supportItem1
+
+// Confidence is the percentage of transactions that contain the two products together, out of the transactions containing one of the two products.
+//As a consequence, there are always two confidence numbers for each couple of products.
+
+// Confidence is useful because it gives the direction of the cross-selling. We can make the hypothesis that it's easier to sell whipped cream to someone buying berries (whipped cream is a nice addition to berries), compared to the opposite. 
+
+//Confidence, however, does not give us the strength of the relationship between the products. One product might be a very common purchase so that it generates high numbers for confidence, independently from the second product.
