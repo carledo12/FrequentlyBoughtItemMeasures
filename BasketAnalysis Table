@@ -1,0 +1,5 @@
+Basket Analysis = FILTER(
+CROSSJOIN(VALUES('Reference Sales Table'[Product]),SELECTCOLUMNS(VALUES('Reference Sales Table'[Product]),"Product2", [Product])),
+[Product]>[Product2])
+
+// Create a table with Product 1 and Product 2 from the sales table 
