@@ -1,0 +1,18 @@
+Lift = 
+
+var item1 = [Product]
+var item2 = [Product2]
+
+var numberOfTransactions = DISTINCTCOUNT('Sales Analyis'[Order ID])
+
+var supportItem1 = COUNTROWS(FILTER('Sales Analyis','Sales Analyis'[Product]=item1))/numberOfTransactions
+
+var supportItem2 = COUNTROWS(FILTER('Sales Analyis','Sales Analyis'[Product]=item2))/numberOfTransactions
+
+RETURN [Support Basket]/(supportItem1 * supportItem2) 
+
+// Lift gives the strength of the relationship between a basket of two products. 
+
+// A lift close to 1 indicates that there is no important relationship between the products.
+// A number higher than 1 (positive relationship) indicates that the consumers buy the basket more frequently than it would happen by chance
+// A number lower than 1 (negative relationship) indicates that the consumers buy the basket less frequently than it would happen by chance
