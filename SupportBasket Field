@@ -1,0 +1,10 @@
+Support Basket = var item1=[Product]
+var item2=[Product2]
+
+var transactionsWithItem1 = SELECTCOLUMNS(FILTER('Sales Analyis','Sales Analyis'[Product]=item1),"transactionID",[Order ID])
+
+var transactionsWithItem2 = SELECTCOLUMNS(FILTER('Sales Analyis','Sales Analyis'[Product]=item2),"transactionID",[Order ID])
+
+var transactionsWithBothItems = INTERSECT(transactionsWithItem1,transactionsWithItem2)
+
+RETURN COUNTROWS(transactionsWithBothItems)/ DISTINCTCOUNT('Sales Analyis'[Order ID])
